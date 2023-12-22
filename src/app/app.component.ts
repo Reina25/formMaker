@@ -46,12 +46,12 @@ export class AppComponent implements OnInit {
   }
 
   addCheckboxField() {
-    // For demonstration purposes, let's say you have user inputs for type, label, and validation
-    const type = 'checkbox'; // Replace this with your user input
-    const label = 'newCheckBoxField'; // Replace this with your user input
-    const validation = { required: false }; // Replace this with your user input for validation rules
+    const label = 'checkboxField'; // Replace this with your user input
+    const validation = { required: true }; // Replace this with your user input for validation rules
 
-    this.addField(type, label, validation);
+    const control = this.formBuilder.control(false, this.mapValidators(validation));
+    this.dynamicForm.addControl(label, control);
+    this.formFields.push({ type: 'checkbox', label, validation });
   }
 
   
